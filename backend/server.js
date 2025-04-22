@@ -7,7 +7,7 @@ const userRoute = require("./route/user");
 const path = require("path");
 const connectDB = require("./config/db");
 
-connectDB();
+connectDB(); 
 
 app.use(express.json());
 app.use("/static", express.static(path.join(__dirname, "Static")));
@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", true);
 
-  // Handle preflight OPTIONS requests yes
+  // Handle preflight OPTIONS requests
   if (req.method === "OPTIONS") res.sendStatus(200);
   else next();
 });
